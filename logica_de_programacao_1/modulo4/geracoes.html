@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+<script>
+    function pulaLinha(){
+        document.write("<br>");
+    }
+
+    mostra = (anoAtual) => {
+        let anosDecorridos = anoAtual - 1500;
+        let MediaGeracoes = anosDecorridos / 28;
+
+        document.write("O Brasil já teve " 
+        + Math.round(MediaGeracoes) 
+        + " Gerações" );
+
+        return pulaLinha();
+    }
+
+    mostra(2022);
+
+
+</script>

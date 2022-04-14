@@ -1,0 +1,36 @@
+<canvas width="600" height="400"></canvas>
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    var randomX = 300;
+    var randomY = 200;
+    var raio = 10;
+
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(x, y, raio, cor) {
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+    
+    setInterval(()=> {
+        pincel.clearRect(0, 0, 600, 400);
+        randomX = Math.floor(Math.random() * 600)
+        randomY = Math.floor(Math.random() * 400)
+        desenhaCirculo(randomX,randomY, raio + 20, 'red'); 
+        desenhaCirculo(randomX,randomY, raio + 10, 'white');
+        desenhaCirculo(randomX,randomY, raio, 'red');
+    }, 1000);
+
+    tela.onclick = (evento) => {
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        if ((x >= randomX - raio && x <= randomX + raio) 
+            && (y >= randomY - raio && y <= randomY + raio)){
+            alert("Você acertou o alvo!");
+        }
+        console.log(x + ', ' + y);
+    }
+</script>
