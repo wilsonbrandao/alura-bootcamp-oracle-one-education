@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="PT-br">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +12,15 @@
 </head>
 <body>
     <header>
-        <svg id="logo-alura"  viewBox="0 0 32 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.3958 23.6529C23.3524 23.9311 23.2466 
-            24.1959 23.0863 24.4275C22.926 24.659 22.7154 
-            24.8512 22.4703 24.9898C21.9766 25.3086 21.5447 
-            25.468 21.1077 25.6274C20.177 25.9488 19.1974 
-            26.2702 18.1613 26.643C17.0687 27.0157 16.0891 
-            27.3885 15.215 27.6585C14.1249 28.0313 13.0888 
-            28.3526 12.1041 28.7254C11.3633 29.0425 10.6674 
+        <a alt="Alura | Cursos online de Tecnologia" href="http://www.alura.com.br" target="blank">
+            <svg id="logo-alura"  viewBox="0 0 32 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M23.3958 23.6529C23.3524 23.9311 23.2466 
+                24.1959 23.0863 24.4275C22.926 24.659 22.7154 
+                24.8512 22.4703 24.9898C21.9766 25.3086 21.5447 
+                25.468 21.1077 25.6274C20.177 25.9488 19.1974 
+                26.2702 18.1613 26.643C17.0687 27.0157 16.0891 
+                27.3885 15.215 27.6585C14.1249 28.0313 13.0888 
+                28.3526 12.1041 28.7254C11.3633 29.0425 10.6674 
             29.4556 10.0345 29.9544C9.44584 30.4877 8.93212 
             31.0983 8.50734 31.7695C8.07027 32.515 7.79518 
             33.4766 7.79518 34.5975C7.79518 36.842 8.34022 
@@ -52,41 +53,36 @@
             2.46042 4.16497 3.71248 3.20086C4.96711 2.24189 6.60482 1.44231 8.56647 0.907552C10.4767 
             0.26481 12.8214 0 15.5466 0H15.5415Z"/>
         </svg>
+    </a>
     </header>
     
     <main>
-        <form action="" metohd="">
+        <form method="post">
             <input type="text" id="input-text" name="user_input"  wrap="hard" placeholder="Digite seu texto">
         </form>
-        <!--
-            <form>
-                <textarea id="input-text" name="user_input" wrap="hard" rows="10" cols="20">
-                    Digite seu texto
-                </textarea>
-            </form>
-        -->
 
         <div class="alert-div">
             <img id="img-alert-icon" alt="alert-icon" src="images/alert-icon.png">
             <p>Apenas letras minúsculas e sem acento.</p>
         </div>
 
-
         <ul>
             <li>
-                <button class="button" id="button-encrypt">Criptografar</button>
+                <button  id="button-encrypt">Criptografar</button>
             </li>
             <li>
-                <button class="button" id="button-decrypt">Descriptografar</button>
+                <button  id="button-decrypt">Descriptografar</button>
             </li>
         </ul>
 
-        <aside>
+        <aside id="aside-element">
             <div id="aside-standard">    
                 <img id="img-menino" alt="Imagem-Ilustrativa" src="images/menino-olhando-lupa.png">
                 <p class="text-aside-bold">Nenhuma mensagem encontrada</p>
                 <p class="text-aside">Digite um texto que você deseja criptografar ou descriptografar.</p>
             </div>
+            <p id="paragraph"></p>
+            <button id="button-copy">Copiar</button>
         </aside>
     </main>
     <footer></footer>

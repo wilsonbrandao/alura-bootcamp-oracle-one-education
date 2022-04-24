@@ -59,7 +59,7 @@ textarea {
 
 aside {
     background-color: #ffffff;
-    position: fixed;
+    position: absolute;
     width: 20%;
     min-width: 400px;
     height: 90%;
@@ -116,14 +116,14 @@ ul {
 
     position: absolute;
     left: 15%;
-    bottom: 2.5%;
+    bottom: 5%;
 }
 
 li {
     margin-right: 20px;
 }
 
-.button {
+button {
     background-color: #0A3871;
     border: none;;
     border-radius: 24px;
@@ -154,6 +154,18 @@ li {
     color: #010552;
 }
 
+#button-copy {
+    display: none;
+    margin-bottom: 0%;
+    margin-top: 80%;
+    margin-left: 32px;
+    margin-right: 32px;
+
+    background-color: #D8DFE8;
+    border: 1px solid #0A3871;
+    color: #0A3871;
+}
+
 .alert-div {
     display: flex;
     flex-direction: row;
@@ -163,20 +175,21 @@ li {
 
     position: absolute;
     left: 15%;
-    bottom: 15%;
+    bottom: 20%;
 }
 #img-alert-icon {
     margin-right: 8px;
 }
 
-.paragraph-encrypted {
+#paragraph {
+    display: none;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 36px;
     color: #495057;
-
+    
     text-align: left;
     margin-top: 32px;
     margin-left: 32px;
