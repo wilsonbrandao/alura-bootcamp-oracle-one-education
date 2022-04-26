@@ -1,89 +1,53 @@
-var input = document.querySelector("input");
-var aside = document.querySelector("aside");
-var paragraph = document.getElementById("paragraph");
-var copySet = true;
+const textArea = document.getElementById("input-text");
+const result = document.getElementById("result");
+const paragraph = document.getElementById("paragraph-result");
+const divAside = document.getElementById("standard-aside");
 
-var StringTransformedText = '';
-var divAside = document.getElementById("aside-standard");
-input.focus();
-
-function Criptografar () {
-    var arrayText = input.value.split("");
-    var ArrayTextTransformed = [];
-    buttonCopy.style.display = "flex";
-    
-    arrayText.forEach(element => {
-        if (element == "a"){
-            ArrayTextTransformed.push("ai");
-        }else if(element == "e"){
-            ArrayTextTransformed.push("enter");
-        }else if(element == "i"){
-            ArrayTextTransformed.push("imes");
-        }else if(element == "o"){
-            ArrayTextTransformed.push("ober");
-        }else if(element == "u"){
-            ArrayTextTransformed.push("ufat");
-        }else {
-            ArrayTextTransformed.push(element);
-        }
-    });
-
-    StringTransformedText = ArrayTextTransformed.join("");
-    divAside.style.display = "none";
-    paragraph.textContent = StringTransformedText;
-    paragraph.style.display = "block";
-    copySet = true;
-
-}
-
-function Descriptografar () {
-    var StringEncrypted = input.value;
-    var StringDecrypted = "";
-
-    
-    StringDecrypted = StringEncrypted.replace(/ai/g, "a");
-    StringEncrypted = StringDecrypted;
-    
-    StringDecrypted = StringEncrypted.replace(/enter/g, "e");
-    StringEncrypted = StringDecrypted;
-    
-    StringDecrypted = StringEncrypted.replace(/imes/g, "i");
-    StringEncrypted = StringDecrypted;
-    
-    StringDecrypted = StringEncrypted.replace(/ober/g, "o");
-    StringEncrypted = StringDecrypted;
-    
-    StringDecrypted = StringEncrypted.replace(/ufat/g, "u");
-    StringEncrypted = StringDecrypted;
-  
-    divAside.style.display = "none";
-    paragraph.textContent = StringDecrypted;
-    paragraph.style.display = "block";
-    copySet = false;
-}
-
-input.onclick = () => {
-    if (divAside.style.display == "none"){
-        divAside.style.display = "block";
+textArea.onclick = () => {
+    if (divAside.style.display == "none") {
+        divAside.style.display = "flex";
         paragraph.textContent = "";
-        paragraph.style.display = "none";
+        result.style.display = "none";
     }
 }
 
-var buttonEncrypt = document.getElementById("button-encrypt");
-buttonEncrypt.onclick = Criptografar;
+const buttonEncrypt = document.getElementById("button-encrypt");
+buttonEncrypt.onclick = () => {
+    let stringDencrypted = textArea.value.toLowerCase();
+    let stringEcrypted = "";
+    const regex = /[^\w\s]/;
 
-var buttonDecrypt = document.getElementById("button-decrypt");
-buttonDecrypt.onclick = Descriptografar;
-
-var buttonCopy = document.getElementById("button-copy");
-
-
-function Copy (){
-    if(copySet){
-        navigator.clipboard.writeText(StringTransformedText);
-    }else{
-        navigator.clipboard.writeText(StringDecrypted);
+    if(regex.test(stringDencrypted) == true) {
+        divAside.style.display = "none";
+        paragraph
+        .textContent = "Hmmm, encontrei alguns caracteres especiais, tente retirá-los e criptografar novamente";
+        result.style.display = "flex";
+   }else {
+       stringEcrypted = stringDencrypted.replace(/ai/g, "a")
+       .replace(/e/g, "enter")
+       .replace(/i/g, "imes")
+       .replace(/o/g, "ober")
+       .replace(/u/g, "ufat");
+       divAside.style.display = "none";
+       paragraph.textContent = stringEcrypted;
+       result.style.display = "flex";
     }
 }
-buttonCopy.onclick = Copy;
+
+const buttonDecrypt = document.getElementById("button-decrypt");
+buttonDecrypt.onclick = () => {
+    let stringEncrypted = textArea.value.toLowerCase();
+    let stringDecrypted = "";
+
+    stringDecrypted = stringEncrypted.replace(/ai/g, "a")
+        .replace(/enter/g, "e")
+        .replace(/imes/g, "i")
+        .replace(/ober/g, "o")
+        .replace(/ufat/g, "u");
+    divAside.style.display = "none";
+    paragraph.textContent = stringDecrypted;
+    result.style.display = "flex";
+};
+
+const buttonCopy = document.getElementById("button-copy");
+buttonCopy.onclick = () => navigator.clipboard.writeText(paragraph.textContent);
